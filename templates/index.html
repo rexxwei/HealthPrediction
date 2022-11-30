@@ -1,0 +1,34 @@
+{% extends "base.html"%}
+{% block content %}
+
+<div class="jumbotron">
+	<h2>Welcome to the Appication</h2>
+	<br>
+	<p>The project is to ....................................................................<br>
+	   ......................................................................................................<br>
+	   ......................................................................................................<br>
+	   ......................................................................................................<br>
+	</p>
+	<br>
+	<p>The application has two modes:<br>
+		<br>
+		[Fast Mode]<br>
+		This mode use the scores from camero watcher<br>
+		to predict the participant's health situation.<br>
+		<br>
+		[Accurate Mode]<br>
+		Under this mode, the scores of an activity will be provide<br>
+		by the colabration of ML technique and crowdsourcing works.<br>
+		Hence the score will be more objective compare to fast mode.<br>
+		But user must sign up to use this mode.<br>
+		<br>
+    	(Please note that if you want to get a more object score for the activities.<br>
+	    you can consider sign up for the program and there will be ML technique and <br>
+	    crowdsorcing working work together to provide a more objective score for the activities.<br>
+	    But this process will take 7-10 days to get the score for an activity.)
+	</p>
+	<br>
+	<a href="{{url_for('fastinput')}}">Start fast test</a>
+</div>
+
+{% endblock %}
