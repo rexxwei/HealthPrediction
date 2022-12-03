@@ -2,18 +2,16 @@
 {% block content %}
 
 <div class="jumbotron">
-
-    <h1 style="color:green;">Every thing looks fine!</h1>
+    <img src="/static/yes_mark.png" alt="Negitive Result">
     <p>Our model prediction is a negitive one. <br>
-    Looks like there isn't any issues about your health from the test.<br>
-    </p>
-
-    <p>
-      Please note, this is not a accurate diagnosis. <br>
-      We just use machine learning technique to make a quick evaluation.<br>
-      If you feel like there is issue with your health, please visit your<br>
-      doctor to conduct a thorough medical examination. 
-    </p>
+      Looks like there is nothing you need to worry right now.<br>
+      <br>
+      <br>
+      <a href="{{url_for('fastinput')}}">&lt&ltTry Again</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="{{url_for('aboutsensormodel')}}">What does it mean?</a>
+      <br>
+    </p> 
 
 </div>
 

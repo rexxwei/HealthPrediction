@@ -1,292 +1,313 @@
 {% extends "base.html"%}
 {% block content %}
+
+
+<script>
+function validateForm() {
+  let x1 = document.forms["scoreForm"]["act1"].value;
+  let x2 = document.forms["scoreForm"]["act2"].value;
+  let x3 = document.forms["scoreForm"]["act3"].value;
+  let x4 = document.forms["scoreForm"]["act4"].value;
+  let x5 = document.forms["scoreForm"]["act5"].value;
+  let x6 = document.forms["scoreForm"]["act6"].value;
+  let x7 = document.forms["scoreForm"]["act7"].value;
+  let x8 = document.forms["scoreForm"]["act8"].value;
+
+  if (x1 == "" || x2 == "" || x3 == "" || x4 == "" ||
+      x5 == "" || x6 == "" || x7 == "" || x8 == "" ) {
+    alert("Missing at least one score");
+    return false;
+  }
+}
+</script>
+
 <div class="jumbotron">
-
-    <h1>Welcome to join the test</h1>
+    <h2>Start A Prediction</h2>
+    <img src="/static/tasks.png" alt="tasks">
     <br>
-    <p>After the participant finish the 8 tasks, they will receive a score from 1-10 for each assignment.<br>
-    In this simple mode, the score is provided by staff who watch the participant finish the task through camero.<br>
-    This score might subject to the judge of the task.</p>
-    <br>
-    <p>
-      Please input the scores of all the 8 activities<br>
-      (This information is just for prediction. We won't save your info without your consent!)
+    <p>Tasks List:<br>
+    1) Sweep kitchen and dust living room<br>        
+    2) Obtain medicines and weekly medicine dispenser, fill as directions<br>
+    3) Write a birthday card, enclose a check and address an envelope.<br>
+    4) Find appropriate DVD and watch corresponding news clip.<br>          
+    5) Obtain watering can and water plants<br>          
+    6) Answer the phone and respond to questions pertaining to video in task 4<br>
+    7) Prepare a cup of soup using microwave<br>          
+    8) Pick a complete outfit for an interview
     </p>
-    <br>
-
-    <div>
-    <form action="/predict" method="POST">
-    
-      <p>Act 1:</p>
+    <p>
+    Please input the scores of the 8 tasks<br>
+    <form name="scoreForm" action="/predict" method="POST">
+      Task 1:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <label class="radio-inline">
         <input type="radio" name="act1" value="1">1
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act1" value="2">2
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act1" value="3">3
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act1" value="4">4
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act1" value="5">5
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act1" value="6">6
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act1" value="7">7
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act1" value="8">8
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act1" value="9">9
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act1" value="10">10
       </label>
+      <br>
 
-    <br>
-
-    <p>Act 2:</p>
+      Task 2:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <label class="radio-inline">
         <input type="radio" name="act2" value="1">1
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act2" value="2">2
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act2" value="3">3
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act2" value="4">4
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act2" value="5">5
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act2" value="6">6
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act2" value="7">7
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act2" value="8">8
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act2" value="9">9
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act2" value="10">10
       </label>
-    <br>
+      <br>
 
-
-      <p>Act 3:</p>
+      Task 3:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <label class="radio-inline">
         <input type="radio" name="act3" value="1">1
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act3" value="2">2
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act3" value="3">3
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act3" value="4">4
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act3" value="5">5
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act3" value="6">6
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act3" value="7">7
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act3" value="8">8
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act3" value="9">9
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act3" value="10">10
       </label>
       <br>
 
-      <p>Act 4:</p>
+      Task 4:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <label class="radio-inline">
         <input type="radio" name="act4" value="1">1
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act4" value="2">2
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act4" value="3">3
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act4" value="4">4
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act4" value="5">5
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act4" value="6">6
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act4" value="7">7
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act4" value="8">8
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act4" value="9">9
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act4" value="10">10
       </label>
       <br>
 
-
-      <p>Act 5:</p>
+      Task 5:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <label class="radio-inline">
         <input type="radio" name="act5" value="1">1
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act5" value="2">2
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act5" value="3">3
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act5" value="4">4
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act5" value="5">5
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act5" value="6">6
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act5" value="7">7
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act5" value="8">8
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act5" value="9">9
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act5" value="10">10
       </label>
       <br>
 
-
-      <p>Act 6:</p>
+      Task 6:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <label class="radio-inline">
         <input type="radio" name="act6" value="1">1
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act6" value="2">2
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act6" value="3">3
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act6" value="4">4
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act6" value="5">5
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act6" value="6">6
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act6" value="7">7
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act6" value="8">8
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act6" value="9">9
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act6" value="10">10
       </label>
       <br>
 
-      <p>Act 7:</p>
+      Task 7:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <label class="radio-inline">
         <input type="radio" name="act7" value="1">1
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act7" value="2">2
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act7" value="3">3
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act7" value="4">4
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act7" value="5">5
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act7" value="6">6
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act7" value="7">7
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act7" value="8">8
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act7" value="9">9
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act7" value="10">10
       </label>
       <br>
 
-      <p>Act 8:</p>
+      Task 8:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <label class="radio-inline">
         <input type="radio" name="act8" value="1">1
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act8" value="2">2
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act8" value="3">3
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act8" value="4">4
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act8" value="5">5
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act8" value="6">6
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act8" value="7">7
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act8" value="8">8
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act8" value="9">9
       </label>
-      <label class="radio-inline">
+      &nbsp;<label class="radio-inline">
         <input type="radio" name="act8" value="10">10
       </label>
-      <br>
-      <input type="submit" value="Submit">
-    </form>
-  </div>
+      </p>
 
+      <input type="submit" value="Predict" onsubmit="return validateForm()">
+    </form>  
+  <br>
+  <br>
+  <p>
+    *This information is for prediction. We don't save information without your consent!
+  </p>
 </div>
 {% endblock %}

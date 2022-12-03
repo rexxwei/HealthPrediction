@@ -2,33 +2,24 @@
 {% block content %}
 
 <div class="jumbotron">
-	<h2>Welcome to the Appication</h2>
+	<h2>Welcome to the Porject</h2>
 	<br>
-	<p>The project is to ....................................................................<br>
-	   ......................................................................................................<br>
-	   ......................................................................................................<br>
-	   ......................................................................................................<br>
+    <img src="/static/smarthome.png" alt="Pictur_of_project">
+	<br>
+	<br>
+	<p>The application has two modes:
+		<h4>[Sensor Mode]</h4>
+		In this mode, A Machine Learning model (Sensor Model) will give an evaluated score of the<br>
+		task using the data from seneors all over the house.<br>
+		The Sensor Model is trained by the data from the project. &nbsp; <a href="{{url_for('aboutsensormodel')}}">(how it works)</a><br>
+		<br>
+		<h4>[Manual Mode]</h4>
+		Under this mode, a worker (crowdsourcing worker or on-site staff) will watch the video of the task.<br>
+		And give a score of how the participant finish the task. &nbsp; <a href="{{url_for('aboutmanualmodel')}}">(how it works)</a><br>
+		Please note that the manual mode might need the participant to sign up of the project.<br>
+	    And the evaluate process might take up to 7 days to get the score from worker.
 	</p>
-	<br>
-	<p>The application has two modes:<br>
-		<br>
-		[Fast Mode]<br>
-		This mode use the scores from camero watcher<br>
-		to predict the participant's health situation.<br>
-		<br>
-		[Accurate Mode]<br>
-		Under this mode, the scores of an activity will be provide<br>
-		by the colabration of ML technique and crowdsourcing works.<br>
-		Hence the score will be more objective compare to fast mode.<br>
-		But user must sign up to use this mode.<br>
-		<br>
-    	(Please note that if you want to get a more object score for the activities.<br>
-	    you can consider sign up for the program and there will be ML technique and <br>
-	    crowdsorcing working work together to provide a more objective score for the activities.<br>
-	    But this process will take 7-10 days to get the score for an activity.)
-	</p>
-	<br>
-	<a href="{{url_for('fastinput')}}">Start fast test</a>
+	<a href="{{url_for('fastinput')}}">Manual Model Demo&#62;&#62;</a>
 </div>
 
 {% endblock %}

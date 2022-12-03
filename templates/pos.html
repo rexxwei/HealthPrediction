@@ -2,17 +2,15 @@
 {% block content %}
 
 <div class="jumbotron">
-
-    <h1 style="color:red;">There might be some concern...</h1>
+    <img src="/static/question_mark.png" alt="Positive Result">
     <p>Our model prediction is a positive one. <br>
-    There might be some issues about your health suggested by the test.<br>
-    There might be some issues about your health suggested by the test.</p>
-
-    <p>
-      Please note, this is not a accurate diagnosis. <br>
-      We just use machine learning technique to make a quick evaluation.<br>
-      If you feel like there is issue with your health, please visit your<br>
-      doctor to conduct a thorough medical examination. 
+      Looks like there might be some issue. <br>
+      <br>
+      <br>
+      <a href="{{url_for('fastinput')}}">&lt&ltTry Again</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="{{url_for('explanation')}}">What does it mean?</a>
+      <br>
     </p>
 
 </div>
