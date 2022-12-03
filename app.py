@@ -16,10 +16,21 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-# This page will have the sign up form
 @app.route('/fastinput')
 def fastinput():
     return render_template('fastinput.html')
+
+@app.route('/aboutsensormodel')
+def aboutsensormodel():
+    return render_template('aboutsensormodel.html')
+
+@app.route('/aboutmanualmodel')
+def aboutmanualmodel():
+    return render_template('aboutmanualmodel.html')
+
+@app.route('/explanation')
+def explanation():
+    return render_template('explanation.html')
 
 @app.route('/pos')
 def pos():
