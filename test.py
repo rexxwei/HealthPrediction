@@ -1,4 +1,3 @@
-
 from flask import Flask, render_template, request
 import numpy as np
 import joblib
@@ -12,71 +11,12 @@ from imblearn.over_sampling import SMOTE
 import re
 from pickle import load
 
-
-import flask
-app = Flask(__name__)
-
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-@app.route('/fastinput')
-def fastinput():
-    return render_template('fastinput.html')
-
-@app.route('/trysensor')
-def trysensor():
-    return render_template('trysensor.html')
-
-@app.route('/aboutsensormodel')
-def aboutsensormodel():
-    return render_template('aboutsensormodel.html')
-
-@app.route('/aboutmanualmodel')
-def aboutmanualmodel():
-    return render_template('aboutmanualmodel.html')
-
-@app.route('/explanation')
-def explanation():
-    return render_template('explanation.html')
-
-@app.route('/pos')
-def pos():
-    return render_template('pos.html')
-
-@app.route('/neg')
-def neg():
-    return render_template('neg.html')
-
-@app.route('/predict', methods=['POST'])
-def predict():
-    # load the save model and scaler
-    xgb_clf = joblib.load("xgb_clf.save")
-    scaler = joblib.load("scaler.save")
-
-    # transform the input text to numpy array
-    form_input = request.form.to_dict()
-    in_scores = []
-    for k,v in form_input.items():
-        in_scores.append(int(v))
-
-    total = sum(in_scores)
-    in_scores.append(total)
-    X_test = [in_scores]
-    X_scaled = scaler.transform(X_test)
-
-    pred = xgb_clf.predict(X_scaled)
-
-    if pred[0] == 0:
-        return render_template('neg.html')
-    else:
-        return render_template('pos.html')
-
-    return render_template('err.html')
-
-
-@app.route('/sensorpred')
 def sensorpred():
+    # xgb_sensor_model = load(open('xgb_sensor_model.pkl', 'rb'))
+    # # load the scaler
+    # scaler_sensor_model = load(open('scaler_sensor_model.pkl', 'rb'))
+    # scaler_sensor = joblib.load("scaler_sensor_model.save")
+    # xgb_sensor = joblib.load("xgb_sensor_model.save")
 
     # status sensor only record ON/OFF status
     status_sensors = [
@@ -121,12 +61,6 @@ def sensorpred():
 
     #-----------------
 
-    # load the save model and scaler
-    # xgb_sensor_model = joblib.load("xgb_sensor_model.save")
-    # scaler_sensor_model = joblib.load("scaler_sensor_model.save")
-
-    #-----------------
-
     test_data = pd.DataFrame(columns = status_sensors + digit_sensors)
 
     read_test = pd.read_csv('test.txt', sep=' ', header=None, names=["time", "sensor", "reads", "col04"])
@@ -156,13 +90,10 @@ def sensorpred():
 
     pred = clf.predict(test_scaled)
 
-    if pred[0] == 0:
-        return render_template('neg.html')
-    else:
-        return render_template('pos.html')
-
-    return render_template('err.html')
+    print(pred[0])
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080)
+  # sensorpred()
+  import sklearn
+  print(sklearn.__version__)
