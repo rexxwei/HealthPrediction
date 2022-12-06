@@ -1,22 +1,9 @@
 from flask import Flask, render_template, request
-import numpy as np
-import joblib
 import pandas as pd
-import numpy as np
-from sklearn import linear_model
-from sklearn.linear_model import SGDClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import GradientBoostingClassifier
-from imblearn.over_sampling import SMOTE
-import re
-from pickle import load
 
 def sensorpred():
-    # xgb_sensor_model = load(open('xgb_sensor_model.pkl', 'rb'))
-    # # load the scaler
-    # scaler_sensor_model = load(open('scaler_sensor_model.pkl', 'rb'))
-    # scaler_sensor = joblib.load("scaler_sensor_model.save")
-    # xgb_sensor = joblib.load("xgb_sensor_model.save")
 
     # status sensor only record ON/OFF status
     status_sensors = [
@@ -51,9 +38,9 @@ def sensorpred():
     output_map = {3: 0, 4: 0, 5: 0, 7: 0, 8: 0, 9: 0, 1: 1, 2: 1, 6: 1, 10: 0}
     y_relabel = y.map(output_map)
 
-    X_train, X_test, y_train, y_test = train_test_split(X_scaled, y_relabel, test_size=0.2)
+    X_resampled, X_test, y_resampled, y_test = train_test_split(X_scaled, y_relabel, test_size=0.2)
 
-    X_resampled, y_resampled = SMOTE().fit_resample(X_train, y_train)
+    # X_resampled, y_resampled = SMOTE().fit_resample(X_train, y_train)
     y_resampled.value_counts()
 
     clf = GradientBoostingClassifier(n_estimators = 200, max_depth = 200)

@@ -1,17 +1,8 @@
 
 from flask import Flask, render_template, request
-import numpy as np
 import joblib
 import pandas as pd
-import numpy as np
-from sklearn import linear_model
-from sklearn.linear_model import SGDClassifier
-from sklearn.model_selection import train_test_split
 from sklearn.ensemble import GradientBoostingClassifier
-from imblearn.over_sampling import SMOTE
-import re
-from pickle import load
-
 
 import flask
 app = Flask(__name__)
@@ -106,26 +97,18 @@ def sensorpred():
 
     scaler = StandardScaler()
     s_model = scaler.fit(X)
-    X_scaled = s_model.transform(X)
+    # X_scaled = s_model.transform(X)
 
-    output_map = {3: 0, 4: 0, 5: 0, 7: 0, 8: 0, 9: 0, 1: 1, 2: 1, 6: 1, 10: 0}
-    y_relabel = y.map(output_map)
+    # output_map = {3: 0, 4: 0, 5: 0, 7: 0, 8: 0, 9: 0, 1: 1, 2: 1, 6: 1, 10: 0}
+    # y_relabel = y.map(output_map)
+    # X_train, X_test, y_train, y_test = train_test_split(X_scaled, y_relabel, test_size=0.2)
 
-    X_train, X_test, y_train, y_test = train_test_split(X_scaled, y_relabel, test_size=0.2)
-
-    X_resampled, y_resampled = SMOTE().fit_resample(X_train, y_train)
-    y_resampled.value_counts()
+    df2 = pd.read_csv("resample.csv")
+    y_resampled = df2['diagnosis']
+    X_resampled = df2.drop(['diagnosis'], axis = 1)
 
     clf = GradientBoostingClassifier(n_estimators = 200, max_depth = 200)
     clf.fit(X_resampled, y_resampled)
-
-    #-----------------
-
-    # load the save model and scaler
-    # xgb_sensor_model = joblib.load("xgb_sensor_model.save")
-    # scaler_sensor_model = joblib.load("scaler_sensor_model.save")
-
-    #-----------------
 
     test_data = pd.DataFrame(columns = status_sensors + digit_sensors)
 
